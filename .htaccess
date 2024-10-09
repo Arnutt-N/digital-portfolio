@@ -1,0 +1,10 @@
+# Redirect all users to landing page
+RewriteEngine On
+
+# Check if the request is not for landing.html or an existing file/folder
+RewriteCond %{REQUEST_URI} !^/landing.html$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect to landing.html
+RewriteRule ^.*$ /landing.html [L,R=302]
